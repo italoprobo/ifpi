@@ -204,3 +204,81 @@ export function soma_total_matrizes(matriz){
 
     return soma_matriz
 }
+
+
+export function indentidade(matriz){
+
+    for (let i = 0; i < matriz.length; i++) {
+        for (let j = 0; j < matriz[i].length; j++) {
+            if(i === j){
+                matriz[i][j] = 1
+            }else{
+                matriz[i][j] = 0
+            }
+        }
+    }
+
+    return matriz
+}
+
+
+export function soma_das_linhas(matriz){
+
+    let soma = 0
+    let maior = 0
+    let posicao_maior = 0
+    let menor = 999999999999
+    let posicao_menor = 0
+
+    for (let i = 0; i < matriz.length; i++) {
+        for (let j = 0; j < matriz[i].length; j++) {
+            soma += matriz[i][j]
+        }
+
+        if(soma > maior){
+            maior = soma
+            posicao_maior = i
+        }
+
+        if(soma < menor){
+            menor = soma
+            posicao_menor = i
+        }
+
+        soma = 0
+    }
+
+    return [maior, posicao_maior, menor, posicao_menor]
+}
+
+
+export function soma_positivos(matriz){
+    
+    let soma = 0
+
+    for (let i = 0; i < matriz.length; i++) {
+        for (let j = 0; j < matriz[i].length; j++) {
+            if(matriz[i][j] > 0){
+                soma += matriz[i][j] 
+            }
+        }
+    }
+
+    return soma
+}
+
+
+export function soma_negativos(matriz){
+    
+    let soma = 0
+
+    for (let i = 0; i < matriz.length; i++) {
+        for (let j = 0; j < matriz[i].length; j++) {
+            if(matriz[i][j] < 0){
+                soma += matriz[i][j] 
+            }
+        }
+    }
+
+    return soma
+}
